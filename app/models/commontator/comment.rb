@@ -3,6 +3,7 @@ module Commontator
     belongs_to :creator, :polymorphic => true
     belongs_to :editor, :polymorphic => true
     belongs_to :thread
+    belongs_to :parent_comment
 
     validates_presence_of :creator, :on => :create
     validates_presence_of :editor, :on => :update
@@ -13,9 +14,17 @@ module Commontator
       :scope => [:creator_type, :creator_id, :thread_id, :deleted_at],
       :message => I18n.t('commontator.comment.errors.double_posted')
 
+    validate :parent_comment_in_same_thread
+
     protected
 
     cattr_accessor :acts_as_votable_initialized
+
+    def parent_comment_in_same_thread
+      return if parent_comment.nil? || parent_comment.thread_id == thread_id
+      errors.add(:parent_comment, 'must belong to the same thread')
+      false
+    end
 
     public
 

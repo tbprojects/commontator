@@ -50,3 +50,4 @@ class InstallCommontator < ActiveRecord::Migration
               :name => 'index_commontator_threads_on_c_id_and_c_type'
   end
 end
+
