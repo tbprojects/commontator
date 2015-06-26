@@ -13,6 +13,8 @@ Commontator::Engine.routes.draw do
     
     member do
       get 'hide'
+      get 'mentions'
+
       put 'close'
       put 'reopen'
       
