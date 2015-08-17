@@ -41,7 +41,7 @@ module Commontator
         @bcc = recipient_emails(recipients)
       end
 
-      @from = @thread.config.email_from_proc.call(@thread)
+      @from = @thread.config.email_from_proc.call(@comment)
     end
 
     def recipient_emails(recipients)
