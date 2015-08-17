@@ -215,12 +215,12 @@ Commontator.configure do |config|
 
   # email_from_proc
   # Type: Proc
-  # Arguments: a thread (Commontator::Thread)
+  # Arguments: a comment (Commontator::Comment)
   # Returns: the address emails are sent "from" (String)
   # Important: If using subscriptions, change this to at least match your domain name
-  # Default: lambda { |thread|
+  # Default: lambda { |comment|
   #                   "no-reply@#{Rails.application.class.parent.to_s.downcase}.com" }
-  config.email_from_proc = lambda { |thread|
+  config.email_from_proc = lambda { |comment|
     "no-reply@#{Rails.application.class.parent.to_s.downcase}.com" }
 
   # commontable_name_proc
