@@ -30,7 +30,15 @@
     <%= f.text_area :body, :rows => '7' %>
     <%= javascript_tag('Commontator.initMentions()') if Commontator.mentions_enabled %>
   </div>
-  
+
+  <div class="comment_subscribers">
+    <% if @subscribers.try(:any?) %>
+      <span><%= t('commontator.active_subscribers') %>:</span> <%= @subscribers.join(', ') %>
+    <% else %>
+      <%= t('commontator.no_subscribers') %>
+    <% end %>
+  </div>
+
   <div class="comment_form_actions">
     <%= f.submit t("commontator.comment.actions.#{comment.id.blank? ? 'create' : 'update'}") %>
     <%= f.submit t('commontator.comment.actions.cancel'), :name => 'cancel' %>

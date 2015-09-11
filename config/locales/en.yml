@@ -45,6 +45,8 @@ en:
         other: threads
   commontator: 
     anonymous: Anonymous
+    active_subscribers: Subscribers of this discussion
+    no_subscribers: This discussion does not have any subscribers yet
     comment: 
       actions: 
         cancel: Cancel
