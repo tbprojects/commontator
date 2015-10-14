@@ -12,7 +12,7 @@ Commontator.initMentions = function() {
             showAvatars: false,
             allowRepeat: true,
             onDataRequest:function (mode, query, callback) {
-                $.getJSON('commontator/threads/'+threadId+'/mentions.json', {q: query}, function(responseData) {
+                $.getJSON('../commontator/threads/'+threadId+'/mentions.json', {q: query}, function(responseData) {
                     callback.call(this, responseData);
                 });
             }
