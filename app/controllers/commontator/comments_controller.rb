@@ -8,6 +8,7 @@ module Commontator
       @comment = Comment.new
       @comment.thread = @thread
       @comment.creator = @user
+      @subscribers = @thread.subscriptions.map(&:subscriber)
       security_transgression_unless @comment.can_be_created_by?(@user)
 
       @per_page = params[:per_page] || @thread.config.comments_per_page
